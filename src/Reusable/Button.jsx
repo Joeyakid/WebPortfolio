@@ -9,7 +9,7 @@ const Button = ({title, bgcolor, borderColor, textcolor}) => {
             color: `${textcolor}`,
             border: `1px solid ${borderColor}`
         }}
-        className='rounded-full px-[20px] py-[10px]'
+        className='rounded-full px-[20px] py-[10px] cursor-pointer'
         >
             {title}
 

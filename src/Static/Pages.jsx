@@ -1,9 +1,12 @@
 import React from 'react'
 import Button from '../Reusable/Button'
-import pics from '../assets/pics.png'
+import Professional from '../assets/professional.png'
 import profile from '../assets/profile.png'
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { RxCross1 } from "react-icons/rx";
+import { RxHamburgerMenu } from "react-icons/rx";
+import Sidebar from './Sidebar';
 
 
 export default function Page() {
@@ -12,6 +15,12 @@ export default function Page() {
   const servicesRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
+
+  const [toggle, setToggle] = useState(false) 
+
+  const showToggle = () => {
+      setToggle((toggle) => !toggle)
+  }
 
   useEffect(() => {
     if (location.hash === '#about') {
@@ -25,12 +34,14 @@ export default function Page() {
     }
   }, [location]);
 
+
   return (
     <>
-    <header className='bg-blue-500 max-h-[100px] fixed top-0 left-0 w-full z-50 max-w-[1250px] mx-auto flex justify-between items-center ml-[50px]   px-[50px] shadow-2xl pt-4'>
+    <div className='max-w-[1250px] mx-auto'>
+    <header className='tablet:max-w-[1250px] tablet:mx-auto mobile:pr-10 mobile:max-w-[400px] mobile:mx-auto max-h-[100px] fixed top-0 left-0 w-full z-50 flex justify-between items-center ml-[50px]   px-[50px] shadow-2xl pt-4'>
         <main className='w-40 '><img src=" /logo.png" alt=""/>
         </main>
-        <main className='flex gap-10 items-center cursor-pointer'>
+        <main className='tablet:flex tablet:gap-10 tablet:items-center cursor-pointer mobile:hidden tablet:block'>
            <a href="#"> <nav className='text-red-600 hover:text-red-500'>Home</nav></a>
             <a href="#about"> <nav className='hover:text-gray-700'>About</nav></a>
             <a href="#services"> <nav className='hover:text-gray-700'>Services</nav></a>
@@ -42,11 +53,18 @@ export default function Page() {
             textcolor="white"
             />
            </main>
+           <main className='tablet:hidden'>
+            {toggle ? (
+              <RxCross1 size={35} onClick={showToggle}/>
+            ) : (
+              <RxHamburgerMenu size={35} onClick={showToggle}/>
+            )}
+           </main>
         </header>
-           <section className='bg-blue-700 h-screen pt-50 flex justify-between items-center max-w-[1250px] mx-auto px-[50px] py-[60px]'>
-            <main className='w-[500px]'>
+           <section className='bg-blue-700 pt-50 mobile: mobile:flex-wrap flex justify-between items-center px-[50px] py-[60px]'>
+            <main className='w-[500px] mobile:pb-8 mobile:min-w-[350px]'>
             <h3 className='font-bold text-3xl text-white'>Hello, I'm</h3>
-            <h1 className='font-bold text-6xl text-white pt-1.5'> Joy Yakubu</h1>
+            <h1 className='font-bold mobile:text-4xl text-6xl text-white pt-1.5'> Joy Yakubu</h1>
             <p className='font-bold text-2xl text-white pt-2'>Software Developer from Nigeria</p>
             <p className=' text-white pt-3 pb-4'> Turning ideas into interactive, scalable,
                and elegant digital experiences just with one line of code at a time.
@@ -64,14 +82,14 @@ export default function Page() {
             </span>
             </main>
             <main>
-            <div className='w-[400px]'>
-                <img src={pics} alt="" />
+            <div className='tablet:w-[600px] mobile:min-w-[350px]'>
+                <img src={Professional} alt="" />
             </div>
             </main>
             </section>
          
-      <section ref={aboutRef} className='h-screen flex gap-[50px] justify-between items-center max-w-[1250px] mx-auto px-[50px] py-[60px]'>
-        <main className='w-[700px]'>
+      <section ref={aboutRef} className='mobile:min-w-[350px] flex gap-[50px] justify-between items-center max-w-[1250px] mx-auto px-[50px] py-[60px]'>
+        <main className='w-[700px] mobile:hidden tablet:block'>
           <img src={profile} alt="" />
         </main>
         <main className='w-3xl'>
@@ -97,8 +115,8 @@ export default function Page() {
         </main>
       </section>
 
-      <section ref={servicesRef} className='flex gap-[60px] h-screen items-center max-w-[1250px] mx-auto pl-[40px] bg-gradient-to-br from-indigo-600 via-yellow-500 to-pink-400'>
-        <main className='w-[600px]'>
+      <section ref={servicesRef} className='flex gap-[60px] mobile:flex-wrap items-center max-w-[1250px] mx-auto pl-[40px] bg-gradient-to-br from-indigo-600 via-yellow-500 to-pink-400'>
+        <main className='w-[600px] mobile:max-w-[350px]'>
           <h1 className='font-extrabold text-5xl'>What we do</h1>
           <p className='pt-[20px] font-bold'>We turn ideas into beautiful, functional websites that speak clearly and work smoothly.
           From eye-catching designs to interactive features,
@@ -119,12 +137,12 @@ export default function Page() {
             />
         </main>
 
-        <main className='w-[500px]'>
+        <main className='w-[500px] mobile:max-w-[350px] mobile:mx-auto'>
           <img src="./desktop.png" alt="" />
         </main>
       </section>
 
-      <section ref={skillsRef} className='h-screen max-w-[1250px] mx-auto mt-[100px]'>
+      <section ref={skillsRef} className='max-w-[1250px] mx-auto mt-[100px]'>
       <h1 className='font-bold text-5xl text-center'>What I Bring to the Table</h1>
         <main className='grid grid-cols-6 gap-[70px]'>
           <div><img src="./js.png" alt="" />
@@ -171,7 +189,10 @@ export default function Page() {
           </div>
         </main>
       </section>
-
+      <div>
+          {toggle && <Sidebar showToggle={showToggle}/>}
+        </div>
+      </div>
     </>
   )
 }
