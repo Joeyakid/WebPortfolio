@@ -1,4 +1,5 @@
 import React from 'react'
+import Logo from '../assets/logo.png'
 import Button from '../Reusable/Button'
 import Professional from '../assets/professional.png'
 import profile from '../assets/profile.png'
@@ -38,8 +39,8 @@ export default function Page() {
   return (
     <>
     <div className='max-w-[1250px] mx-auto'>
-    <header className='tablet:max-w-[1250px] tablet:mx-auto mobile:pr-10 mobile:max-w-[400px] mobile:mx-auto max-h-[100px] fixed top-0 left-0 w-full z-50 flex justify-between items-center ml-[50px]   px-[50px] shadow-2xl pt-4'>
-        <main className='w-40 '><img src=" /logo.png" alt=""/>
+    <header className=' tablet:max-w-[1250px] tablet:mx-auto mobile:pr-10 mobile:min-w-[300px] mobile:mx-auto max-h-[100px] fixed top-0 left-0 w-full z-50 flex justify-between items-center ml-[50px]   px-[50px] shadow-2xl pt-4'>
+        <main className='w-40 '><img src={Logo} alt=""/>
         </main>
         <main className='tablet:flex tablet:gap-10 tablet:items-center cursor-pointer mobile:hidden tablet:block'>
            <a href="#"> <nav className='text-red-600 hover:text-red-500'>Home</nav></a>
@@ -61,12 +62,12 @@ export default function Page() {
             )}
            </main>
         </header>
-           <section className='bg-blue-700 pt-50 mobile: mobile:flex-wrap flex justify-between items-center px-[50px] py-[60px]'>
+           <section className='bg-gradient-to-br from-white via-gray-400 to-gray-100 pt-50 mobile: mobile:flex-wrap flex justify-between items-center px-[50px] py-[60px]'>
             <main className='w-[500px] mobile:pb-8 mobile:min-w-[350px]'>
-            <h3 className='font-bold text-3xl text-white'>Hello, I'm</h3>
-            <h1 className='font-bold mobile:text-4xl text-6xl text-white pt-1.5'> Joy Yakubu</h1>
-            <p className='font-bold text-2xl text-white pt-2'>Software Developer from Nigeria</p>
-            <p className=' text-white pt-3 pb-4'> Turning ideas into interactive, scalable,
+            <h3 className='font-bold text-3xl'>Hello, I'm</h3>
+            <h1 className='font-bold text-white mobile:text-4xl tablet:text-6xl pt-1.5'> Joy Yakubu</h1>
+            <p className='font-bold text-2xl pt-2'>Software Developer from Nigeria</p>
+            <p className=' pt-3 pb-4'> Turning ideas into interactive, scalable,
                and elegant digital experiences just with one line of code at a time.
             </p>
             <span className='flex gap-4'>
@@ -77,7 +78,7 @@ export default function Page() {
             />
             <a href="https://github.com/Joeyakid"><Button
             title="See my work"
-            textcolor="white"
+            textcolor="black"
             borderColor="red"/></a>
             </span>
             </main>
@@ -115,7 +116,7 @@ export default function Page() {
         </main>
       </section>
 
-      <section ref={servicesRef} className='flex gap-[60px] mobile:flex-wrap items-center max-w-[1250px] mx-auto pl-[40px] bg-gradient-to-br from-indigo-600 via-yellow-500 to-pink-400'>
+      <section ref={servicesRef} className='flex gap-[60px] mobile:flex-wrap items-center max-w-[1250px] mx-auto pl-[40px] bg-gradient-to-r from-rose-200 to-red-500 '>
         <main className='w-[600px] mobile:max-w-[350px]'>
           <h1 className='font-extrabold text-5xl'>What we do</h1>
           <p className='pt-[20px] font-bold'>We turn ideas into beautiful, functional websites that speak clearly and work smoothly.
