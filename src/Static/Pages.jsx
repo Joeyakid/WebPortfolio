@@ -2,12 +2,13 @@ import React from 'react'
 import Logo from '../assets/logo.png'
 import Button from '../Reusable/Button'
 import Professional from '../assets/professional.png'
-import profile from '../assets/profile.png'
+import Codephoto from '../assets/codephoto.png'
 import { useRef, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { RxCross1 } from "react-icons/rx";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Sidebar from './Sidebar';
+import Contact from './Contact'
 
 
 export default function Page() {
@@ -39,10 +40,10 @@ export default function Page() {
   return (
     <>
     <div className='max-w-[1250px] mx-auto'>
-    <header className=' tablet:max-w-[1250px] tablet:mx-auto mobile:pr-10 mobile:min-w-[300px] mobile:mx-auto max-h-[100px] fixed top-0 left-0 w-full z-50 flex justify-between items-center ml-[50px]   px-[50px] shadow-2xl pt-4'>
-        <main className='w-40 '><img src={Logo} alt=""/>
+    <header className=' max-h-[100px] fixed top-0 left-0 w-full z-50 flex justify-between items-center px-[20px] md:px-[50px] shadow-2xl pt-4'>
+        <main className='w-32 md:w-40'><img src={Logo} alt=""/>
         </main>
-        <main className='tablet:flex tablet:gap-10 tablet:items-center cursor-pointer mobile:hidden tablet:block'>
+        <main className='hidden md:flex md:gap-10 md:items-center cursor-pointer'>
            <a href="#"> <nav className='text-red-600 hover:text-red-500'>Home</nav></a>
             <a href="#about"> <nav className='hover:text-gray-700'>About</nav></a>
             <a href="#services"> <nav className='hover:text-gray-700'>Services</nav></a>
@@ -54,7 +55,7 @@ export default function Page() {
             textcolor="white"
             />
            </main>
-           <main className='tablet:hidden'>
+           <main className='md:hidden'>
             {toggle ? (
               <RxCross1 size={35} onClick={showToggle}/>
             ) : (
@@ -62,15 +63,15 @@ export default function Page() {
             )}
            </main>
         </header>
-           <section className='bg-gradient-to-br from-white via-gray-400 to-gray-100 pt-50 mobile: mobile:flex-wrap flex justify-between items-center px-[50px] py-[60px]'>
-            <main className='w-[500px] mobile:pb-8 mobile:min-w-[350px]'>
-            <h3 className='font-bold text-3xl'>Hello, I'm</h3>
-            <h1 className='font-bold text-white mobile:text-4xl tablet:text-6xl pt-1.5'> Joy Yakubu</h1>
-            <p className='font-bold text-2xl pt-2'>Software Developer from Nigeria</p>
+           <section className='bg-gradient-to-br from-white via-gray-400 to-gray-100 flex flex-col md:flex-row justify-between items-center px-6 md:px-[50px] py-[60px] pt-[120px]'>
+            <main className='md:w-[500px] w-full text-center md:text-left mb-10 md:mb:0'>
+            <h3 className='font-bold text-2xl md:text-3xl'>Hello, I'm</h3>
+            <h1 className='font-bold text-red-600 sm:text-4xl md:text-6xl pt-2'> Joy Yakubu</h1>
+            <p className='font-bold text-lg md:text-2xl pt-2'>Software Developer from Nigeria</p>
             <p className=' pt-3 pb-4'> Turning ideas into interactive, scalable,
                and elegant digital experiences just with one line of code at a time.
             </p>
-            <span className='flex gap-4'>
+            <span className='flex flex-col sm:flex-row gap-4 justify-center md:justify-start'>
             <Button
             title="Free consultation"
             bgcolor="red"
@@ -83,21 +84,21 @@ export default function Page() {
             </span>
             </main>
             <main>
-            <div className='tablet:w-[600px] mobile:min-w-[350px]'>
+            <div className=' w-full md:max-w-[600px] max-w-[350px]'>
                 <img src={Professional} alt="" />
             </div>
             </main>
             </section>
          
-      <section ref={aboutRef} className='mobile:min-w-[350px] flex gap-[50px] justify-between items-center max-w-[1250px] mx-auto px-[50px] py-[60px]'>
-        <main className='w-[700px] mobile:hidden tablet:block'>
-          <img src={profile} alt="" />
+      <section ref={aboutRef} className='md:flex-row flex flex-col-reverse gap-[30px] justify-between items-center max-w-[1250px] mx-auto md:px-[50px] py-[60px]'>
+        <main className='w-full md:max-w-[500px] max-w-[350px]'>
+          <img src={Codephoto} alt="" />
         </main>
-        <main className='w-3xl'>
+        <main className='md:w-3xl w-full text-center md:text-left'>
           <h1 className='font-bold text-3xl'>ABOUT</h1>
           <br />
           
-          <hr className='w-[50px]'/>
+          <hr className='w-[50px] mx-auto md:mx-0 my-4'/>
           <br />
           <p>Always experimenting. Always building. That's how she grows, one project at a time.
           </p>
@@ -112,23 +113,23 @@ export default function Page() {
               <p>Alongside that, I'm studying Computer Science at Ahmadu Bello University, 
                 building a strong backbone in programming concepts, data structures, and systems thinking.</p>
                 <br />
-              <p>Think we could create something together? feel free to <a href="" className='text-purple-600'>drop an email</a></p>  
+              <p>Think we could create something together? feel free to <a href="mailto:Yakjoy6@gmail.com" className='text-purple-600'>drop an email</a></p>  
         </main>
       </section>
 
-      <section ref={servicesRef} className='flex gap-[60px] mobile:flex-wrap items-center max-w-[1250px] mx-auto pl-[40px] bg-gradient-to-r from-rose-200 to-red-500 '>
-        <main className='w-[600px] mobile:max-w-[350px]'>
-          <h1 className='font-extrabold text-5xl'>What we do</h1>
+      <section ref={servicesRef} className='flex flex-col gap-[40px] md:flex-row items-center md:gap-[60px] max-w-[1250px] mx-auto md:pl-[40px] bg-gradient-to-r from-rose-200 to-red-500 '>
+        <main className='w-full md:h-[500px] md:w-[600px] text-center md-text-left pt-[30px]'>
+          <h1 className='font-extrabold text-4xl md:text-5xl'>What we do</h1>
           <p className='pt-[20px] font-bold'>We turn ideas into beautiful, functional websites that speak clearly and work smoothly.
           From eye-catching designs to interactive features,
            we create online experiences that are fast, user-friendly, and built to make an impact.
            </p>
-           <p className='font-bold'>It’s not just about putting something online — it’s about making it work, feel right, and stand out.
+           <p className='font-bold mt-4'>It’s not just about putting something online — it’s about making it work, feel right, and stand out.
            <br />
            <br />
            <br /> 
            </p>
-           <p className='font-bold'>Need something that’s both beautiful and practical? <a href="#contact" className='text-purple-600 hover:text-purple-500 cursor-pointer'>Let’s build.</a></p>
+           <p className='font-bold mt-6'>Need something that’s both beautiful and practical? <a href="#contact" className='text-purple-600 hover:underline cursor-pointer'>Let’s build.</a></p>
            <br />
            <br />
             <Button
@@ -143,9 +144,9 @@ export default function Page() {
         </main>
       </section>
 
-      <section ref={skillsRef} className='max-w-[1250px] mx-auto mt-[100px]'>
-      <h1 className='font-bold text-5xl text-center'>What I Bring to the Table</h1>
-        <main className='grid grid-cols-6 gap-[70px]'>
+      <section ref={skillsRef} className='max-w-[1250px] mx-auto mt-[60px] md:mt-[100px] px-6'>
+      <h1 className='font-bold text-3xl md:text-5xl text-center'>What I Bring to the Table</h1>
+        <main className='grid grid-cols-3 sm-grid-cols-3 md:grid-cols-4 mt-10 lg:grid-cols-6 gap-[30px] md:gap-[70px]'>
           <div><img src="./js.png" alt="" />
           <h1 className='text-center'>JavaScript</h1>
           </div>
@@ -190,6 +191,11 @@ export default function Page() {
           </div>
         </main>
       </section>
+
+      <section ref={contactRef}>
+      <Contact/>
+      </section>
+
       <div>
           {toggle && <Sidebar showToggle={showToggle}/>}
         </div>
