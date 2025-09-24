@@ -40,7 +40,7 @@ export default function Page() {
   return (
     <>
     <div className='max-w-[1250px] mx-auto'>
-    <header className=' max-h-[100px] fixed top-0 left-0 w-full z-50 flex justify-between items-center px-[20px] md:px-[50px] shadow-2xl pt-4'>
+    <header className=' max-h-[100px] fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 sm:px-8 lg:px-12 shadow-2xl pt-4'>
         <main className='w-32 md:w-40'><img src={Logo} alt=""/>
         </main>
         <main className='hidden md:flex md:gap-10 md:items-center cursor-pointer'>
@@ -195,10 +195,10 @@ export default function Page() {
       <section ref={contactRef}>
       <Contact/>
       </section>
-
-      <div>
+          <div>
           {toggle && <Sidebar showToggle={showToggle}/>}
-        </div>
+          </div>
+        
       </div>
     </>
   )
